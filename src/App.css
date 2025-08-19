@@ -81,9 +81,12 @@
   cursor: pointer;
   transition: all 0.3s;
 }
+.redButton {
+  background-color: red ;
+}
 
 .btn-show-watched:hover {
-  background-color: var(--color-primary-light);
+  /* background-color: var(--color-primary-light); */
 }
 .btn-back-to-movies {
   background-color: var(--color-primary);

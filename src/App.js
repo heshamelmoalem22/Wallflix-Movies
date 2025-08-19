@@ -11,7 +11,7 @@ const KEY = "b50d9fb1";
 export default function App() {
   const [query, setQuery] = useState("");
   const [selectedId, setSelectedId] = useState(null);
-  const [showWallflix, setShowWallflix] = useState(false);
+  const [showWallflix, setShowWallflix] = useState(true);
   const [showWatched, setShowWatched] = useState(false);
   const { movies, isLoading, error } = useMovies(query);
   const [watched, setWatched] = useLocalStorageState([], "watched");
@@ -118,7 +118,7 @@ function NavBar({ children, onShowWallflix, onShowWatched, showWatched, showWall
       <Logo onClick={onShowWallflix} />
       {children}
       
-        <button
+        {/* <button
           className="btn-back-to-movies"
           onClick={() => {
             onShowWallflix();    
@@ -126,7 +126,7 @@ function NavBar({ children, onShowWallflix, onShowWatched, showWatched, showWall
           }}
         >
           🎬 Back to Movies
-        </button>
+        </button> */}
       
     </nav>
   );
@@ -166,7 +166,7 @@ function Search({ query, setQuery }) {
 function NumResults({ movies }) {
   return (
     <p className="num-results">
-      Found <strong>{movies.length}</strong> results
+      
     </p>
   );
 }
@@ -324,8 +324,8 @@ function MovieDetails({ selectedId, onCloseMovie, onAddWatched, watched, setShow
                   )}
                 </>
               ) : !isWatched && addedToWatched ? (
-                <button
-                  className="btn-add"
+                <button  className="redButton"
+                  
                   onClick={() => {
                     onCloseMovie();
                     setShowWallflix(false);
@@ -339,7 +339,8 @@ function MovieDetails({ selectedId, onCloseMovie, onAddWatched, watched, setShow
                     You rated this movie {watchedUserRating} <span>⭐️</span>
                   </p>
                   <button 
-                    className="btn-show-watched"
+                    className="btn-add"
+                    style={{ marginTop: "10px" }} 
                     onClick={() => {
                       onCloseMovie();
                       setShowWallflix(false);

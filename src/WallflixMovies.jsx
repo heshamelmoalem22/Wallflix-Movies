@@ -36,7 +36,7 @@ function Search({ query, setQuery }) {
 function NumResults({ movies }) {
   return (
     <p className="num-results">
-      Found <strong>{movies.length}</strong> results
+      
     </p>
   );
 }
@@ -51,7 +51,7 @@ export default function WallflixMovies({ onMovieSelect, onBack }) {
   const fetchMovies = async (searchQuery = "", pageNum = 1) => {
     setIsLoading(true);
     try {
-      // If no search query, fetch recent movies by year
+      
       const url = searchQuery 
         ? `https://www.omdbapi.com/?apikey=${API_KEY}&s=${searchQuery}&page=${pageNum}`
         : `https://www.omdbapi.com/?apikey=${API_KEY}&s=2023&page=${pageNum}`;
@@ -60,7 +60,7 @@ export default function WallflixMovies({ onMovieSelect, onBack }) {
       const data = await res.json();
       
       if (data.Response === "True") {
-        // Always sort by newest first
+        
         const sortedMovies = data.Search.sort((a, b) => b.Year.localeCompare(a.Year));
         setMovies(sortedMovies);
       } else {
